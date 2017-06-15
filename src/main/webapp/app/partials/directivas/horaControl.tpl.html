@@ -1,0 +1,12 @@
+<div ng-if="read" class="btn-group" role="group">
+	<button class="btn btn-primary"><span><b>{{value}}</b></span></button>
+	<button class="btn btn-primary">{{am?amValue:pmValue}}</button>
+</div>
+
+<div ng-if="!read" class="btn-group" role="group">
+	<button class="btn btn-success" ng-click="dec()"><i class="glyphicon glyphicon-minus"></i></button>
+	<button class="btn"><span><b>{{value}}</b></span></button>
+	<button class="btn btn-success" ng-click="add()"><i class="glyphicon glyphicon-plus"></i></button>
+	<button class="btn" ng-class="{'btn-success':am}" ng-click="ponAm()">{{amValue}}</button>
+	<button class="btn" ng-class="{'btn-success':!am}" ng-click="quitaAm()">{{pmValue}}</button>
+</div>

@@ -1,0 +1,80 @@
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.1); /*dim the background*/
+}
+/*centrado vertival y horizontal*/
+.centrado {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/*********************
+TOP
+*********************/
+
+.logo-img{
+	height: 80px;
+}
+
+.top-logo{
+	background-color: #9E1B32;
+	border-bottom: 1px solid #cccccc;
+	text-align: left;
+	margin: 0;
+	height: auto;
+	padding: 0;}
+.top-logo h1, .top-logo div {
+	color: white;
+	vertical-align: top;
+}
+
+.top-border{
+	background-color: #fdd209;
+	height: 10px;
+}
+
+.appName{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #c60219;
+}
+
+.panelCentral{
+	height: 200px
+}
+
+/*********************
+OFERTAESTADO
+*********************/
+
+.actividades{
+	color: white;
+	text-align: center;
+}
+
+.actividades{
+	color: white;
+	text-align: center;
+}
+
+.divcalendar{
+
+}
+
+.pading_top_and_bottom{
+	padding-bottom: 10px;
+    padding-top: 10px;
+}
+.heigth_text_area{
+    height: 180px;
+}
+ sort-t {cursor:pointer;}

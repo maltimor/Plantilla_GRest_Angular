@@ -1,0 +1,62 @@
+<div ng-if="user.attr.ENTORNO=='PRUEBAS'">
+<style>
+body {
+background: url("img/pruebas.gif") repeat-y;
+}
+</style>
+</div>
+
+
+<div>
+	<div class="row" style="color: white; background: #1790D5">
+		<div class="col-md-2" style="padding-left: 60px">
+			<img class="pull-left" id="cabeceraEscudo" src="img/comunidad-autonoma-de-murcia-white.png" alt="CARM.es" title="CARM.es" height="40">
+		</div>
+		<div class="col-md-5 text-center">
+			<font size="5" style="margin-top: 10px"><strong>{{appConfig.nombre}} {{user.attr.ENTORNO}}</strong></font>
+		</div>
+		<div class="col-md-2">
+			<font size="4" style="margin-top: 10px" class="pull-right"><strong>v{{appConfig.version}}</font></strong>
+		</div>
+		<div class="col-md-2 pull-right">IP: {{info.ip}} - {{info.version}} {{user.login}}</div>
+	</div>
+	<nav class="navbar navbar-default" style="margin-bottom: 0px;">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Menu</a>
+			</div>
+	
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#/logout"><i class="glyphicon glyphicon-off"> Logout</i></a></li>
+				</ul>
+	
+				<ul class="nav navbar-nav">
+					<li ng-if="userHasAnyPerfil(item.proceso)" ng-repeat="item in appConfig.menu" ng-class="item.state" ng-click="onClickNavigation(appConfig.menu,item)">
+						<a ng-if="item.submenu.length==0" ng-href="#/{{item.url}}">{{item.nombre}}</a>
+						<a ng-if="item.submenu.length>0" class="dropdown-toggle" data-toggle="dropdown" role="button">{{item.nombre}} <b class="caret"></b></a>
+						<ul ng-if="item.submenu.length>0" class="dropdown-menu" role="menu">
+							<li ng-if="userHasAnyPerfil(subitem.proceso)" ng-repeat="subitem in item.submenu" ng-class="subitem.state" ng-click="onClickNavigation(appConfig.menu,subitem)">
+								<a ng-href="#/{{subitem.url}}">{{subitem.nombre}}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>	
+	<div class="row" style="background: #99ccff">
+		<div class="col-md-12">
+			<b>USUARIO:</b> {{user|userResumen}} <b>PERFIL:</b> {{user.attr.PERFIL}}
+		</div>
+	</div>
+</div>
+

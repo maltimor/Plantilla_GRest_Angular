@@ -1,0 +1,12 @@
+<table width="100%">
+	<tbody>
+		<tr class="text-center">
+			<td style="width:50px;"><a ng-click="increment()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+			<td style="width:150px;" class="form-group" ng-class="{'has-error': invalid}">
+				<input type="text" ng-model="value" ng-change="update()" class="form-control text-center" ng-mousewheel="increment()" ng-readonly="readonlyInput">
+			</td>
+			<td style="width:50px;"><a ng-click="decrement()" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
+		</tr>
+	</tbody>
+</table>
+

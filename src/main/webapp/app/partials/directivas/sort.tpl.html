@@ -1,0 +1,5 @@
+<span  ng-click="onChange()">
+	<span ng-if="sortlabel!=undefined">{{sortlabel}}</span>
+	<span ng-if="sortlabel==undefined">{{sortparam}}</span>
+	<i ng-show="opt.orderby==sortparam" class="glyphicon glyphicon-chevron{{ (opt.order == 'ASC') ? '-up' : '-down' }}"></i>
+</span>

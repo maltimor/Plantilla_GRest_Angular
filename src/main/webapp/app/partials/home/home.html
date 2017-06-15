@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row"><br/></div>
+	<div class="row">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Elija el perfil con el que desea iniciar la sesion, por favor</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<label>USUARIO</label>
+						<span class="form-control">{{user|userResumen}}</span></div>
+					</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<label>PERFIL</label>
+						<SELECT class="form-control" ng-model="perfilSel" ng-options="item for item in user.roles track by item"></SELECT>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<BUTTON class="btn btn-primary" ng-click="seleccionarPerfil()">Acceder</BUTTON>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

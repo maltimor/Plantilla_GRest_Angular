@@ -1,0 +1,25 @@
+			<ul class="pagination">
+				<!-- <li ng-class="{ disabled : isOnFirstPage() }">
+					<span ng-show="isOnFirstPage()" class="glyphicon glyphicon-step-backward btn-xs"> </span>
+					<a ng-show="!isOnFirstPage()" class="glyphicon glyphicon-step-backward  btn-xs" ng-click="setFirstPage()"> </a>
+				</li>
+				
+				<li ng-class="{'disabled':isOnFirstPage()}">
+				   <span ng-show="isOnFirstPage()" class="glyphicon glyphicon-fast-backward btn-xs"> </span>
+				   <a ng-show="!isOnFirstPage()" class="glyphicon glyphicon-backward btn-xs" ng-click="setPreviousPage()"> </a>
+				</li> -->
+				
+				<li ng-repeat="page in data.pages track by $index" class="glyphicon btn-xs" ng-class="{ active : data.current == page, disabled : page == '...' }">
+    			    <a href="" ng-click="setCurrent(page)">{{ page }}</a>
+    			</li>
+		   
+				<!-- <li ng-class="{'disabled':isOnLastPage()}">
+				   <span ng-show="isOnLastPage()" class="glyphicon glyphicon-fast-forward btn-xs"> </span>
+				   <a ng-show="!isOnLastPage()" class="glyphicon glyphicon-forward btn-xs" ng-click="setNextPage()"> </a>
+				</li>
+				
+				<li ng-class="{'disabled':isOnLastPage()}">
+				   <span ng-show="isOnLastPage()" class="glyphicon glyphicon-step-forward btn-xs"> </span>
+				   <a ng-show="!isOnLastPage()" class="glyphicon glyphicon-step-forward btn-xs" ng-click="setLastPage()"> </a>
+				</li> -->
+			</ul>

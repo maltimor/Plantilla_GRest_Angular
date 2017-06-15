@@ -1,0 +1,32 @@
+<style>
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+</style>
+
+	<div class="container">
+	<div class="row"><h3><i class="glyphicon glyphicon-list-alt"></i> DATOS DE USUARIO</h3></div>
+	<div class="row">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Datos del usuario</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-2"><label>Login</label><span class="form-control">{{user.login}}</span></div>
+					<div class="col-md-8"><label>ROLES</label><span class="form-control">{{user.roles}}</span></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2"><label>DNI</label><span class="form-control">{{user.attr.DNI}}</span></div>
+					<div class="col-md-4"><label>NOMBRE</label><span class="form-control">{{user.attr.NOMBRE}}</span></div>
+					<div class="col-md-3"><label>APELLIDO1</label><span class="form-control">{{user.attr.APELLIDO1}}</span></div>
+					<div class="col-md-3"><label>APELLIDO2</label><span class="form-control">{{user.attr.APELLIDO2}}</span></div>
+				</div>
+				<div class="row">
+					<pre><span ng-bind-html="u"></span></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>

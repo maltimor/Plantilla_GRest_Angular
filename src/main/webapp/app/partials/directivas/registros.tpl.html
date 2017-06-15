@@ -1,0 +1,7 @@
+<div ng-show="data.isEmpty()">
+	<div>0 Registros encontrados</div>
+</div>
+
+<div ng-hide="data.isEmpty()">
+	<div>Registros [ {{ data.getOffset()+1 }} al {{data.getLastReg()}} ] de {{data.getTotal()}}</div>
+</div>

@@ -1,0 +1,47 @@
+
+<div class="container responsive">	
+	<div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+				<div class="col-md-4">
+					Equipos por página: 
+					<select ng-model="valor" ng-change="changeLimit(valor)">
+					    <option value="10" ng-selected="10"><button class="button button-icon ion-plus">10</button></option>
+						<option value="25"><button class="button button-icon ion-plus">25</button></option>
+						<option value="50"><button class="button button-icon ion-plus">50</button></option>
+						<option value="100"><button class="button button-icon ion-plus">100</button></option>
+					</select>	
+					<button class="btn btn-default" ng-click="clear()" ><i class="glyphicon glyphicon-refresh"></i></button>
+				</div>
+				<div class="col-md-4 col-md-offset-4">
+		            Buscar equipo: <input ng-model="filtro" ng-enter="searchSrc()"  class="form-control">
+		        </div>
+		    </div>
+    	</div>				
+    </div>
+
+   <table class="table table-hover">
+		<thead>
+			<tr>
+				<th class="col-md-2">ACCIONES</th>
+				<th class="col-md-2"><sort-t opt="genOptions" sortparam="TYPE" on-change="sortSrc('TYPE')"></sort-t></th>
+				<th class="col-md-3"><sort-t opt="genOptions" sortparam="TIMESTAMP" on-change="sortSrc('TIMESTAMP')"></sort-t></th>
+				<th class="col-md-3"><sort-t opt="genOptions" sortparam="SOURCE" on-change="sortSrc('SOURCE')"></sort-t></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='item in equipos'>
+				<td>
+					<button class="btn btn-primary" ng-click="ver(item)"><i class="glyphicon glyphicon-eye-open"></i></button>
+				</td>
+				<td>{{item.TYPE}}</td>
+				<td>{{item.TIMESTAMP|date}}</td>
+				<td>{{item.SOURCE}}</td>
+			</tr>
+		</tbody>
+	</table> 
+	<div class="text-center">
+		<edu-pagination data="equiposPagination" on-change="setPageSrc()"></edu-pagination>
+        <app-register parametro="equiposPagination"></app-register>
+	</div>
+</div>

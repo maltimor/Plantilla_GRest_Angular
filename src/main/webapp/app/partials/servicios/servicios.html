@@ -1,0 +1,105 @@
+<style>
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+</style>
+
+	<div class="container">
+		<div class="row"><h3><i class="glyphicon glyphicon-list-alt"></i> SERVICIOS</h3></div>
+		<div class="row">
+			<button class="btn btn-primary" ng-click="reload()"><i class="glyphicon glyphicon-refresh"></i></button>
+		</div>
+		<div class="panel panel-primary" ng-show="!showCategoria">
+			<div class="panel-heading"><h3 class="panel-title">Listado de servicios</h3></div>
+			<div class="panel-body">
+				<list-control api="apiPagCrudFn" overlay="showOverlayLoading" btn="newItem()" btn-caption="Nuevo servicio"></list-control>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-2">ACCIONES</th>
+							<th class="col-md-2"><sort-t opt="genOptions" sortparam="TABLE_NAME" on-change="sortSrc('TABLE_NAME')"></sort-t></th>
+							<th class="col-md-2"><sort-t opt="genOptions" sortparam="TYPE" on-change="sortSrc('TYPE')"></sort-t></th>
+							<th class="col-md-2"><sort-t opt="genOptions" sortparam="SEC_INFO" on-change="sortSrc('SEC_INFO')"></sort-t></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='item in data'>
+							<td>
+								<button class="btn btn-primary" ng-click="ver(item)"><i class="glyphicon glyphicon-eye-open"></i></button>
+								<button class="btn btn-danger" ng-click="eliminar(item.TABLE_NAME)"><i class="glyphicon glyphicon-remove"></i></button>
+							</td>
+							<td>{{item.TABLE_NAME}}</td>
+							<td>{{item.TYPE}}</td>
+							<td>{{item.SEC_INFO}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="text-center">
+					<edu-pagination data="pagination" on-change="setPageSrc()"></edu-pagination>
+			        <app-register parametro="pagination"></app-register>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary" ng-show="showCategoria && !showDataExample">
+			<div class="panel-heading">
+				<h3 class="panel-title">Datos del servicio</h3>
+				<button class="btn btn-primary" ng-click="volver()"><i class="glyphicon glyphicon-arrow-left"></i></button>
+				<button class="btn btn-success" ng-click="grabar()"><i class="glyphicon glyphicon-floppy-disk"></i></button>
+				<button class="btn btn-success pull-right" ng-click="previsualiza()"><i class="glyphicon glyphicon-asterisk"></i></button>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-4"><label>TABLE_NAME</label><input class="form-control" disabled ng-model="ID"></div>
+					<div class="col-md-4"><label>NEW TABLE_NAME</label><input class="form-control" ng-model="dataSel.TABLE_NAME"></div>
+					<div class="col-md-4"><label>TYPE</label><input class="form-control" ng-model="dataSel.TYPE"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-4"><label>RESOLVER</label><input class="form-control" ng-model="dataSel.RESOLVER"></div>
+					<div class="col-md-8"><label>FINAL_TABLE</label><input class="form-control" ng-model="dataSel.FINAL_TABLE"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-4"><label>FIELDS</label><input class="form-control" ng-model="dataSel.FIELDS"></div>
+					<div class="col-md-6"><label>KEYS</label><input class="form-control" ng-model="dataSel.KEYS"></div>
+					<div class="col-md-2"><label>SEPARATOR</label><input class="form-control" ng-model="dataSel.SEPARATOR"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-8"></div>
+					<div class="col-md-4"><label>SELECT_FILTER</label><textarea class="form-control" ng-model="dataSel.SELECT_FILTER"></textarea></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"><label>SELECT_VALUE</label><textarea class="form-control" ng-model="dataSel.SELECT_VALUE"></textarea></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"><label>INSERT_VALUE</label><textarea class="form-control" ng-model="dataSel.INSERT_VALUE"></textarea></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"><label>UPDATE_VALUE</label><textarea class="form-control" ng-model="dataSel.UPDATE_VALUE"></textarea></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"><label>DELETE_VALUE</label><textarea class="form-control" ng-model="dataSel.DELETE_VALUE"></textarea></div>
+				</div>
+				<div class="row">
+					<div class="col-md-4"><label>SEC_RESOLVER</label><input class="form-control" ng-model="dataSel.SEC_RESOLVER"></div>
+					<div class="col-md-8"><label>SEC_INFO</label><textarea class="form-control" ng-model="dataSel.SEC_INFO"></textarea></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"><pre><span ng-bind-html="info"></span></pre></div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary" ng-show="showDataExample">
+			<div class="panel-heading">
+				<h3 class="panel-title">Datos del servicio</h3>
+				<button class="btn btn-success pull-right" ng-click="showDataExample=false"><i class="glyphicon glyphicon-arrow-left"></i></button>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<pre><span ng-bind-html="dataExample"></span></pre>
+				</div>
+			</div>
+		</div>		
+	</div>
+	

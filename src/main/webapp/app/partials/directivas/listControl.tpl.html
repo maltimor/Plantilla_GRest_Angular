@@ -1,0 +1,33 @@
+
+<div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+				<div class="col-md-3">
+					<div class="input-group">
+						<span class="input-group-addon">Items:</span> 
+						<select class="form-control" ng-model="valor" ng-change="changeLimit(valor)">
+						    <option value="10" ng-selected="10">10</option>
+							<option value="25">25</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+							<option value="500">500</option>
+							<option value="1000">1000</option>
+						</select>
+						<span class="input-group-addon btn btn-default" ng-click="clear()" ><i class="glyphicon glyphicon-refresh"></i></span>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<button class="btn btn-success" ng-click="exportExcel()"><i class="glyphicon glyphicon-th" aria-hidden="true"></i></button>
+				</div>
+				<div class="col-md-1">
+					<button ng-if="btnCaption!=undefined" class="btn btn-primary" ng-click="btn()">{{btnCaption}}</button>
+				</div>
+				<div class="col-md-4 col-md-offset-3">
+					<div class="input-group">
+						<input ng-model="filtro" ng-enter="searchSrc()"  class="form-control">
+						<span class="input-group-addon" ng-click="searchSrc()" ><i class="glyphicon glyphicon-search"></i></span>
+					</div>
+		        </div>
+		    </div>
+    	</div>				
+    </div>

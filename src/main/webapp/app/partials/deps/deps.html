@@ -1,0 +1,70 @@
+	<div class="container">
+		<div class="row"><h3><i class="glyphicon glyphicon-list-alt"></i> DEP</h3></div>
+		<div class="panel panel-primary" ng-show="!showCategoria">
+			<div class="panel-heading"><h3 class="panel-title">DEP</h3></div>
+			<div class="panel-body">
+				<list-control api="apiPagCrudFn" overlay="showOverlayLoading" btn="newItem()" btn-caption="New dep"></list-control>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-2">ACCIONES</th>
+							<th class="col-md-2"><sort-t opt="genOptions" sortparam="ID" on-change="sortSrc('ID')"></sort-t></th>
+							<th class="col-md-2"><sort-t opt="genOptions" sortparam="NAME" on-change="sortSrc('NAME')"></sort-t></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='item in data'>
+							<td>
+								<button class="btn btn-primary" ng-click="ver(item)"><i class="glyphicon glyphicon-eye-open"></i></button>
+								<button class="btn btn-danger" ng-click="eliminar(item.ID)"><i class="glyphicon glyphicon-remove"></i></button>
+							</td>
+							<td>{{item.ID}}</td>
+							<td>{{item.NAME}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="text-center">
+					<edu-pagination data="pagination" on-change="setPageSrc()"></edu-pagination>
+			        <app-register parametro="pagination"></app-register>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary" ng-show="showCategoria && !showDataExample">
+			<div class="panel-heading">
+				<h3 class="panel-title">DEP DATA</h3>
+				<button class="btn btn-primary" ng-click="volver()"><i class="glyphicon glyphicon-arrow-left"></i></button>
+				<button class="btn btn-success" ng-click="grabar()"><i class="glyphicon glyphicon-floppy-disk"></i></button>
+				<button class="btn btn-success pull-right" ng-click="previsualiza()"><i class="glyphicon glyphicon-asterisk"></i></button>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-4"><label>ID</label><input class="form-control" disabled ng-model="ID"></div>
+					<div class="col-md-4"><label>NEW ID</label><input class="form-control" ng-model="dataSel.ID"></div>
+					<div class="col-md-4"><label>NAME</label><input class="form-control" ng-model="dataSel.NAME"></div>
+				</div>
+				<div class="row">
+					<br/>
+					<div class="panel panel-primary">
+						<div class="panel-heading"><h3 class="panel-title">EMPS</h3></div>
+						<div class="panel-body">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th class="col-md-2"><sort-t opt="genOptions" sortparam="ID" on-change="sortSrc('ID')"></sort-t></th>
+										<th class="col-md-2"><sort-t opt="genOptions" sortparam="NAME" on-change="sortSrc('NAME')"></sort-t></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat='item in dataEMP'>
+										<td>{{item.ID}}</td>
+										<td>{{item.NAME}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	

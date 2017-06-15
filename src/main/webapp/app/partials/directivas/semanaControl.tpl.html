@@ -1,0 +1,20 @@
+  <div ng-if="read" class="btn-group" role="group">
+	<button class="btn" ng-class="{'btn-primary':patron.L}" ng-if="patron.L" ng-model='patron.L'>L</button>
+	<button class="btn" ng-class="{'btn-primary':patron.M}" ng-if="patron.M" ng-model='patron.M'>M</button>
+	<button class="btn" ng-class="{'btn-primary':patron.X}" ng-if="patron.X" ng-model='patron.X'>X</button>
+	<button class="btn" ng-class="{'btn-primary':patron.J}" ng-if="patron.J" ng-model='patron.J'>J</button>
+	<button class="btn" ng-class="{'btn-primary':patron.V}" ng-if="patron.V" ng-model='patron.V'>V</button>
+	<button class="btn" ng-class="{'btn-primary':patron.S}" ng-if="patron.S" ng-model='patron.S'>S</button>
+	<button class="btn" ng-class="{'btn-primary':patron.D}" ng-if="patron.D" ng-model='patron.D'>D</button>
+  </div>
+
+  <div ng-if="!read" class="btn-group" role="group">
+	<button class="btn" ng-class="{'btn-success':patron.L}" ng-model='patron.L' ng-click="patron.L=!patron.L">L</button>
+	<button class="btn" ng-class="{'btn-success':patron.M}" ng-model='patron.M' ng-click="patron.M=!patron.M">M</button>
+	<button class="btn" ng-class="{'btn-success':patron.X}" ng-model='patron.X' ng-click="patron.X=!patron.X">X</button>
+	<button class="btn" ng-class="{'btn-success':patron.J}" ng-model='patron.J' ng-click="patron.J=!patron.J">J</button>
+	<button class="btn" ng-class="{'btn-success':patron.V}" ng-model='patron.V' ng-click="patron.V=!patron.V">V</button>
+	<button class="btn" ng-class="{'btn-success':patron.S}" ng-model='patron.S' ng-click="patron.S=!patron.S">S</button>
+	<button class="btn" ng-class="{'btn-success':patron.D}" ng-model='patron.D' ng-click="patron.D=!patron.D">D</button>
+  </div>
+  

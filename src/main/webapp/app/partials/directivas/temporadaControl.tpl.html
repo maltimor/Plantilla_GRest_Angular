@@ -1,0 +1,7 @@
+<div ng-if="read" class="btn-group" role="group">
+	<button ng-repeat="t in temporadas" class="btn" ng-class="{'btn-primary':temporada[t]}" ng-if="temporada[t]" ng-model='temporada[t]'>{{t}}</button>
+</div>
+
+<div ng-if="!read" class="btn-group" role="group">
+	<button ng-repeat="t in temporadas" class="btn" ng-class="{'btn-success':temporada[t]}" ng-model='temporada[t]' ng-click="click(t)">{{t}}</button>
+</div>
